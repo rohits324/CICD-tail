@@ -16,5 +16,8 @@ jobs:
       uses: actions/setup-java@v4
       with:
          distribution: 'temurin'
-         version: '17'
+         java-version: '17'
+
+    - name: run maven
+      run: mvn clean package
 
