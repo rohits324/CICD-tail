@@ -22,8 +22,8 @@ jobs:
       run: mvn clean package
       working-directory: DemoAPP
 
-     - name: Copy to temp folder
-        run: |
-          mkdir temp
-          cp target/*.jar temp/
+    - name: Copy to temp folder
+      run: |
+        mkdir temp
+        cp target/*.jar temp/
 
