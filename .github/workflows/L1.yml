@@ -12,12 +12,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Print the CICD
-      run: echo "Hello, ther How are you"
-
-    - name: check run or not
-      run: |
-        echo "running"
-        ls -la
-     
+    - name: setup java
+      uses: actions/setup-java@v4
+      with:
+         distribution: 'temurin'
+         version: '17'
 
