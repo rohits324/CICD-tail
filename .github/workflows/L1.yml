@@ -20,4 +20,5 @@ jobs:
 
     - name: run maven
       run: mvn clean package
+      working-directory: DemoAPP
 
