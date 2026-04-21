@@ -49,6 +49,8 @@ jobs:
 
       - name: Build Jar file
         run: mvn clean package -DskipTests
+        working-directory: DemoAPP
+
 
       - name: List Target folder
         run: ls -l target/
