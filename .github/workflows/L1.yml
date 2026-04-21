@@ -1,8 +1,8 @@
-# name: Learning CICD
+name: Learning CICD
 
-# on:
-#  push:
-#   branches: ["main"]
+on:
+ push:
+  branches: ["main"]
 
 # jobs:
 #  build:
@@ -27,11 +27,11 @@
 #         mkdir temp
 #         cp target/*.jar temp/
 
-name: Deploying Java Application into git.
+# name: Deploying Java Application into git.
 
-on:
- push:
-  branches: ["main"]
+# on:
+#  push:
+#   branches: ["main"]
 
 jobs:
   build:
