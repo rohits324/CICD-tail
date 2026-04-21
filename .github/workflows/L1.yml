@@ -54,16 +54,12 @@ jobs:
         run: mvn clean package -DskipTests
         working-directory: DemoAPP
 
-      - name: Verify and Copy JAR
+      - name: Copy JAR to temp
         run: |
-          if ls target/*.jar 1> /dev/null 2>&1; then
-            mkdir -p /tmp/myapp
-            cp target/*.jar /tmp/myapp/
-            echo "JAR copied successfully"
-          else
-            echo "JAR not found! Build failed."
-            exit 1
-          fi
+          mkdir -p /tmp/myapp
+          cp DemoAPP/target/*.jar /tmp/myapp/
 
-      - name: List Target folder
-        run: ls -l target/
+      - name: Verify JAR
+        run: ls -l /tmp/myapp
+
+      
