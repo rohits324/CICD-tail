@@ -46,3 +46,9 @@ jobs:
         with:
             java-version: '17'
             distribution: 'temurin'
+
+      - name: Build Jar file
+        run: mvn clean package -Dskiptest
+
+      - name: List Target folder
+        uses: ls -l target/
