@@ -40,7 +40,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+      
+      - name: Debug structure
+        run: ls -R
+        
       - name: Java Install
         uses: actions/setup-java@v4
         with:
@@ -51,6 +54,16 @@ jobs:
         run: mvn clean package -DskipTests
         working-directory: DemoAPP
 
+      - name: Verify and Copy JAR
+        run: |
+          if ls target/*.jar 1> /dev/null 2>&1; then
+            mkdir -p /tmp/myapp
+            cp target/*.jar /tmp/myapp/
+            echo "JAR copied successfully"
+          else
+            echo "JAR not found! Build failed."
+            exit 1
+          fi
 
       - name: List Target folder
         run: ls -l target/
