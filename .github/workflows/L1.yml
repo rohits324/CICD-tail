@@ -1,29 +1,48 @@
-name: Learning CICD
+# name: Learning CICD
+
+# on:
+#  push:
+#   branches: ["main"]
+
+# jobs:
+#  build:
+#   runs-on: ubuntu-latest
+
+#   steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v4
+
+#     - name: setup java
+#       uses: actions/setup-java@v4
+#       with:
+#          distribution: 'temurin'
+#          java-version: '17'
+
+#     - name: run maven
+#       run: mvn clean package
+#       working-directory: DemoAPP
+
+#     - name: Copy to temp folder
+#       run: |
+#         mkdir temp
+#         cp target/*.jar temp/
+
+name: Deploying Java Application into git.
 
 on:
  push:
   branches: ["main"]
 
 jobs:
- build:
-  runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout:
+        uses: actions/checkout@v4
 
-    - name: setup java
-      uses: actions/setup-java@v4
-      with:
-         distribution: 'temurin'
-         java-version: '17'
-
-    - name: run maven
-      run: mvn clean package
-      working-directory: DemoAPP
-
-    - name: Copy to temp folder
-      run: |
-        mkdir temp
-        cp target/*.jar temp/
-
+      - name: Java Install
+        uses: actions/setup-java@v4
+        with:
+            java-version: '17'
+            distribution: 'temurin'
