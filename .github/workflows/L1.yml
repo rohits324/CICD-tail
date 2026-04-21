@@ -27,6 +27,14 @@ on:
 #         mkdir temp
 #         cp target/*.jar temp/
 
+# - name: Copy JAR to temp
+      #   run: |
+      #     mkdir -p /tmp/myapp
+      #     cp DemoAPP/target/*.jar /tmp/myapp/
+
+      # - name: Verify JAR
+      #   run: ls -l /tmp/myapp
+
 # name: Deploying Java Application into git.
 
 # on:
@@ -54,12 +62,12 @@ jobs:
         run: mvn clean package -DskipTests
         working-directory: DemoAPP
 
-      - name: Copy JAR to temp
-        run: |
-          mkdir -p /tmp/myapp
-          cp DemoAPP/target/*.jar /tmp/myapp/
 
-      - name: Verify JAR
-        run: ls -l /tmp/myapp
+      - name: Build Image into Docker
+        working-directory: DemoAPP
+        run: docker build -t demo-app .
+
+      - name: Check image file
+        run: docker image
 
       
