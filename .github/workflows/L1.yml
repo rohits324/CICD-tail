@@ -48,7 +48,7 @@ jobs:
             distribution: 'temurin'
 
       - name: Build Jar file
-        run: mvn clean package -Dskiptest
+        run: mvn clean package -DskipTests
 
       - name: List Target folder
-        uses: ls -l target/
+        run: ls -l target/
