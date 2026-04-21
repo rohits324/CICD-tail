@@ -65,9 +65,9 @@ jobs:
 
       - name: Build Image into Docker
         working-directory: DemoAPP
-        run: docker build -t demo-appv:${GITHUB_RUN_NUMBER} .
+        run: docker build -t demo-app:${GITHUB_RUN_NUMBER} .
 
       - name: Check image file
-        run: docker image
+        run: docker image ls
 
       
